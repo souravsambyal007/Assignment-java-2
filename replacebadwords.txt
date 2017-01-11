@@ -1,0 +1,19 @@
+package javaprog;
+public class commandprompt {
+public static void main(String[] args) {
+	        String s = "Hello Readers , you are not stupid or nonsense, you are a rascal";
+	        System.out.println(s.replaceAll(censorWords("stupid", "nonsense", "rascal"), "*"));
+	    }
+
+	    public static String censorWords(String... words) {
+	        String re = "";
+	        for (String w : words)
+	            for (int i = 0; i < w.length(); i++)
+	                re += String.format("|((?<=%s)%s(?=%s))",
+	                        w.substring(0, i), w.charAt(i), w.substring(i + 1));
+	        return re.substring(1);
+	    }
+	}
+
+		// TODO Auto-generated method stub
+
